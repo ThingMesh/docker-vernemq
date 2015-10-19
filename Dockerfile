@@ -13,7 +13,9 @@ COPY	vernemq.conf.default vmq.passwd.default vmq.acl.default /tmp/
 RUN	chmod +x /run.sh
 
 VOLUME	/etc/vernemq
+VOLUME	/var/lib/vernemq
 
 EXPOSE  1883
 
 CMD	["/bin/bash", "-c", "./run.sh"]
+
