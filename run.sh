@@ -4,5 +4,7 @@
 [ -f /etc/vernemq/vmq.acl ] || cp /tmp/vmq.acl.default /etc/vernemq/vmq.acl
 [ -f /etc/vernemq/vmq.passwd ] || cp /tmp/vmq.passwd.default /etc/vernemq/vmq.passwd
 
-vernemq console
+vernemq start
+
+exec bin/bash
 

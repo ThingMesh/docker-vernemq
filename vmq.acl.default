@@ -1,1 +1,3 @@
-topic #
+user admin
+pattern read #
+pattern write #

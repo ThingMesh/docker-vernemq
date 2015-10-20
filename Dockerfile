@@ -16,6 +16,8 @@ VOLUME	/etc/vernemq
 VOLUME	/var/lib/vernemq
 
 EXPOSE  1883
+EXPOSE  4369
+EXPOSE  18000-18999
 
-CMD	["/bin/bash", "-c", "./run.sh"]
+ENTRYPOINT	["/bin/bash", "-c", "./run.sh"]
 

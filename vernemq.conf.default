@@ -14,7 +14,7 @@ allow_anonymous = off
 ## 
 ## Acceptable values:
 ##   - on or off
-trade_consistency = off
+trade_consistency = on
 
 ## Allows a client to logon multiple times using the same client id
 ## (non-standard behaviour!).
@@ -23,7 +23,7 @@ trade_consistency = off
 ## 
 ## Acceptable values:
 ##   - on or off
-allow_multiple_sessions = off
+allow_multiple_sessions = on
 
 ## Set the time in seconds VerneMQ waits before a retry, in case a (QoS=1 or QoS=2) message
 ## delivery gets no answer.
@@ -175,7 +175,11 @@ listener.tcp.default = 0.0.0.0:1883
 ## 
 ## Acceptable values:
 ##   - an IP/port pair, e.g. 127.0.0.1:10011
-listener.vmq.clustering = 0.0.0.0:44053
+listener.vmq.clustering = 0.0.0.0:18000
+
+## 
+erlang.distribution.port_range.minimum = 18001
+erlang.distribution.port_range.maximum = 18999
 
 ## Set the mountpoint on the protocol level or on the listener level
 ## - listener.tcp.mountpoint
@@ -656,7 +660,7 @@ log.crash.rotation.keep = 5
 ## 
 ## Acceptable values:
 ##   - text
-nodename = VerneMQ@127.0.0.1
+nodename = broker@hostname.example.com
 
 ## Cookie for distributed node communication. All nodes in the
 ## same cluster should use the same cookie or they will not be able to
@@ -666,7 +670,7 @@ nodename = VerneMQ@127.0.0.1
 ## 
 ## Acceptable values:
 ##   - text
-distributed_cookie = vmq
+distributed_cookie = broker
 
 ## Sets the number of threads in async thread pool, valid range
 ## is 0-1024. If thread support is available, the default is 64.

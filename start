@@ -1,2 +1,2 @@
 #!/bin/sh
-docker run -p 1883:1883 -p 18000-18999:18000-18999 -v ~/broker/etc:/etc/vernemq -v ~/broker/lib:/var/lib/vernemq -ti thingmesh/broker
+docker run --net=host -v ~/broker/etc:/etc/vernemq -v ~/broker/lib:/var/lib/vernemq --restart=always -tid thingmesh/broker
