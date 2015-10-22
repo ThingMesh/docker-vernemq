@@ -1,0 +1,25 @@
+===============================
+Verne.mq Docker Container Usage
+===============================
+
+Examples
+--------
+
+Update to latest version:
+
+$ docker pull thingmesh/vernemq
+
+Fetch and show usage information:
+
+$ docker run --name vernemq --tty --interactive thingmesh/vernemq
+
+Start with data in external folders:
+
+$ mkdir -p ~/vernemq/etc
+$ mkdir -p ~/vernemq/lib
+$ docker run -v ~/vernemq/etc:/etc/vernemq -v ~/vernemq/lib:/var/lib/vernemq --tty --interactive thingmesh/vernemq shell
+
+The configuration can now be modified.  Finally run the service:
+
+$ docker run -v ~/vernemq/etc:/etc/vernemq -v ~/vernemq/lib:/var/lib/vernemq --tty --interactive --detach thingmesh/vernemq run
+

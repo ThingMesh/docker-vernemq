@@ -9,6 +9,7 @@ RUN     export DEBIAN_FRONTEND=noninteractive && \
         apt-get install -yq mosquitto-clients vernemq && \
 	apt-get -yq clean
 
+COPY    usage /
 COPY    run.sh /
 COPY	vernemq.conf.default vmq.passwd.default vmq.acl.default /tmp/
 
@@ -21,5 +22,5 @@ EXPOSE  1883
 EXPOSE  4369
 EXPOSE  18000-18999
 
-ENTRYPOINT	["/bin/bash", "-c", "./run.sh"]
+ENTRYPOINT	["./run.sh"]
 
