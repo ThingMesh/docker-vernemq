@@ -1,13 +1,16 @@
 FROM thingmesh/base:latest
 
-MAINTAINER Lars Boegild Thomsen <lth@bright-things.com>
+MAINTAINER Lars Bøgild Thomsen <lth@bright-things.com>
 
-RUN     curl https://packagecloud.io/install/repositories/erlio/vernemq/script.deb.sh | bash
+RUN     export os=debian && export dist=jessie && curl https://packagecloud.io/install/repositories/erlio/vernemq/script.deb.sh | bash
 
-RUN     export DEBIAN_FRONTEND=noninteractive && \
-        apt-get -y update && \
-        apt-get install -yq mosquitto-clients vernemq && \
-	apt-get -yq clean
+RUN     export DEBIAN_FRONTEND=noninteractive && apt-get -y update 
+
+RUN     export DEBIAN_FRONTEND=noninteractive && apt-get install -yq mosquitto-clients 
+
+RUN     export DEBIAN_FRONTEND=noninteractive && apt-get install -yq vernemq 
+
+RUN     export DEBIAN_FRONTEND=noninteractive && apt-get -yq clean
 
 COPY    usage /
 COPY    run.sh /
